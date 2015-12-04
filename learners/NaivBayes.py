@@ -52,5 +52,3 @@ class NaivBayes(Learner):
                 best_prob = probability
                 best_label = classValue
         return best_label
-
-

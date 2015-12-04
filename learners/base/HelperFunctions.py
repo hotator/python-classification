@@ -52,7 +52,4 @@ def split_dataset(dataset, split_ratio):
     while len(training_set) < train_size:
         index = random.randrange(len(test_set))
         training_set.append(test_set.pop(index))
-    #print('Split {0} rows into train={1} and test={2} rows'.format(len(dataset), len(training_set), len(test_set)))
     return training_set, test_set
-
-

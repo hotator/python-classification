@@ -84,6 +84,3 @@ if __name__ == '__main__':
 
     print(float(sum(erg)) / len(erg))
     """
-    # multi algo (naiv etc)
-
-    # combination

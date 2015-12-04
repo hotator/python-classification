@@ -5,7 +5,7 @@ should work with python 2 and 3
 
 ## requierements
 python-csv
-optional: pretty-print
+optional: pretty-table
 
 ## usage
 in main.py:
@@ -17,3 +17,6 @@ in main.py:
 ## foreign code
 The implementation of Naiv bayes based on the code from
 (http://machinelearningmastery.com/naive-bayes-classifier-scratch-python/)
+
+## Datasets
+Datasets are some base free real life datasets from around the internet

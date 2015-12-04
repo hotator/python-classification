@@ -32,5 +32,3 @@ class BlackHole(Learner):
         for classValue, instances in self.summaries.iteritems():
             erg += [[dist(instances, input_vector[:-1]), classValue]]
         return min(erg)[1]
-
-
