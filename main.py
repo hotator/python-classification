@@ -5,6 +5,7 @@
 from prettytable import PrettyTable
 from learners.base.HelperFunctions import load_csv, split_dataset
 from learners import *
+import numpy as np
 
 
 def table_print(class_names, data_dict):
@@ -37,14 +38,15 @@ if __name__ == '__main__':
     #data = load_csv('classdata/pima.dat')
     #train, test = split_dataset(data, 0.05)
 
-    classes = [NaivBayes, Nearest, Simple, Stupid, Stupid2, Random, BlackHole, Meta]
-    #dataset_names = ['balance', 'banana', 'pima']
+    #classes = [NaivBayes, Nearest, Simple, Stupid, Stupid2, Random, BlackHole, Meta]
+    classes = [Ensamble, Nearest]
+    dataset_names = ['balance', 'banana', 'pima']
     #dataset_names = ['phoneme', 'haberman', 'contraceptive']
     #dataset_names = ['tae', 'titanic', 'hayes-roth']
     #dataset_names = ['bupa', 'newthyroid', 'monk-2']
     #dataset_names = ['appendicitis', 'glass', 'led7digit']
 
-    dataset_names = ['iris', 'wine', 'seeds', 'ecoli']
+    #dataset_names = ['iris', 'wine', 'seeds', 'ecoli']
     #dataset_names += ['digits', 'yeast']
     #dataset_names = ['yeast']
 

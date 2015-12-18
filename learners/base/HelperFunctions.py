@@ -4,6 +4,8 @@
 import math
 import csv
 import random
+from itertools import combinations
+import numpy as np
 
 
 def mean(numbers):
@@ -34,6 +36,7 @@ def get_most_common(lst):
     return max(set(lst), key=lst.count)
 
 
+"""
 def load_csv(filename):
     lines = csv.reader(open(filename, "rb"))
     dataset = list(lines)
@@ -43,6 +46,7 @@ def load_csv(filename):
         temp.append(dataset[i][-1].strip())
         res += [temp]
     return res
+"""
 
 
 def split_dataset(dataset, split_ratio):
@@ -52,4 +56,17 @@ def split_dataset(dataset, split_ratio):
     while len(training_set) < train_size:
         index = random.randrange(len(test_set))
         training_set.append(test_set.pop(index))
+    #return dataset[:train_size], dataset[train_size:]
     return training_set, test_set
+
+
+def get_combinations(vector, zahl):
+    return list(combinations(vector, zahl))
+
+
+def load_csv(filename="la.csv"):
+    return np.genfromtxt(filename, delimiter=',')
+
+
+def mydist(p1, p2):
+    return np.linalg.norm(np.array(p1)-np.array(p2))
