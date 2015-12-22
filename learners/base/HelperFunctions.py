@@ -60,7 +60,7 @@ def split_dataset(dataset, split_ratio):
     return training_set, test_set
 
 
-def get_combinations(vector, zahl):
+def get_combinations(vector, zahl):         #combinations
     return list(combinations(vector, zahl))
 
 
@@ -68,5 +68,5 @@ def load_csv(filename="la.csv"):
     return np.genfromtxt(filename, delimiter=',')
 
 
-def mydist(p1, p2):
+def mydist(p1, p2):                             #euclidean distance
     return np.linalg.norm(np.array(p1)-np.array(p2))
