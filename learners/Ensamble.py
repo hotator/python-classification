@@ -12,6 +12,8 @@ class Ensamble(Learner):
 
         # vals
         self.num = num_vals
+        if self.num > len(trainset):
+            self.num = len(trainset)
 
         # functions
         self.get_predictions()
