@@ -7,7 +7,7 @@ from .base.HelperFunctions import get_most_common
 from Nearest import Nearest
 from Simple import Simple
 from BlackHole import BlackHole
-
+from Ensamble import Ensamble
 
 class Meta(Learner):
     def __init__(self, trainset, testset):
@@ -15,7 +15,7 @@ class Meta(Learner):
 
         # TODO: vote_classes as parameter
         # voting classes
-        vote_classes = [Nearest, Simple, BlackHole]
+        vote_classes = [Nearest, Simple, Ensamble]
         self.vote_list = []
         for c in vote_classes:
             self.vote_list += [c(trainset, testset).predictions]

@@ -39,15 +39,15 @@ if __name__ == '__main__':
     #train, test = split_dataset(data, 0.05)
 
     #classes = [NaivBayes, Nearest, Simple, Stupid, Stupid2, Random, BlackHole, Meta]
-    classes = [Ensamble, Nearest]
-    dataset_names = ['balance', 'banana', 'pima']
+    classes = [Ensamble, Nearest, NaivBayes, Simple, Meta]
+    #dataset_names = ['iris']
     #dataset_names = ['phoneme', 'haberman', 'contraceptive']
     #dataset_names = ['tae', 'titanic', 'hayes-roth']
     #dataset_names = ['bupa', 'newthyroid', 'monk-2']
     #dataset_names = ['appendicitis', 'glass', 'led7digit']
 
-    #dataset_names = ['iris', 'wine', 'seeds', 'ecoli']
-    #dataset_names += ['digits', 'yeast']
+    dataset_names = ['iris','wine' ,'seeds']
+    dataset_names += ['digits', 'yeast']
     #dataset_names = ['yeast']
 
     res_dict = calculate(dataset_names, classes)
