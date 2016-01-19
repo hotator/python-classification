@@ -8,6 +8,7 @@ import random
 
 
 def nearest_ensemble_modell(data, label): # "classification modell"
+    label = [[a] for a in label]
     return np.concatenate((data, label), axis=1)
 
 
@@ -17,22 +18,8 @@ def nearest_ensemble(modelldata, datapoints, arg1):
     if arg1 > len(datapoints) or arg1 <= 0:
         arg1 = len(datapoints)
     for datapoint in datapoints:
-        label += [predict(modelldata, datapoint, arg1)]
+        label += [int(predict(modelldata, datapoint, arg1))]
     return label
-
-
-def split_dataset(dataset, split_ratio):
-    '''
-        helper function splits dataset into training and test set.
-    '''
-    train_size = int(len(dataset) * split_ratio)
-    training_set = []
-    test_set = list(dataset)
-    while len(training_set) < train_size:
-        index = random.randrange(len(test_set))
-        training_set.append(test_set.pop(index))
-    # return dataset[:train_size], dataset[train_size:]
-    return np.array(training_set), np.array(test_set)
 
 
 def predict(modelldata, input_vector, arg1):
@@ -68,14 +55,34 @@ def mydist(p1, p2):  # euclidean distance
 
 
 if __name__ == '__main__':
-    data = np.genfromtxt('../data/iris.dat', delimiter=',')
-    trainset, testset = split_dataset(data, 0.05)
 
-    train = trainset[:, :-1]
+    import sklearn.datasets as skd
+    data, label = skd.make_blobs(n_samples=150, n_features=4)
 
-    label = trainset[:, -1:]
+    train = data[:12]
+    train_label = label[:12]
+    test = data[12:]
+    test_label = label[12:]
 
-    test = testset[:, :-1]
+    modell = nearest_ensemble_modell(train, train_label)
+    print(nearest_ensemble(modell, test, 1))
+    """
+    ###################################################################
+    import sklearn.datasets as skd
+    data, label = skd.make_blobs(n_samples=150, n_features=4)
 
-    modell = nearest_ensemble_modell(train, label)
-    print(nearest_ensemble(trainset, test, 2))
+    k = 1
+
+    train = data[:12]
+    train_label = label[:12]
+    test = data[12:]
+    test_label = label[12:]
+
+    print train.shape
+    print train_label.shape
+    print test.shape
+    print test_label.shape
+
+    modell = nearest_ensemble_modell(train, train_label)
+    prediction = predict(modell, test, k)
+    """
